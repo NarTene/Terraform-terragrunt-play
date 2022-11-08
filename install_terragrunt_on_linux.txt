@@ -1,0 +1,35 @@
+Install Terragrunt on amazon linux 2 ec2 server
+
+1- Lunch an Amazon EC2 instance and SSH into the server
+   - instance type: t2.micro
+   - OS : amz linux 2
+
+2- Install terraform on amazon linux
+
+$sudo yum install -y yum-utils
+$sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+$sudo yum -y install terraform
+
+ref
+https://www.terraform.io/downloads
+
+3- Install Terragrunt
+   - download terragrunt from gruntwork-io github repo
+     $ wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.40.1/terragrunt_linux_amd64
+   
+   - rename the downloaded file (terragrunt_linux_amd64) to terragrunt
+     $ mv terragrunt_linux_amd64 terragrunt
+ 
+   - make it executable (change the binary file permission to make it executable)
+     $ chmod u+x terragrunt
+
+   - move the binary file to /usr/local/bin/ (linux or mac)
+     $ sudo mv terragrunt /usr/local/bin/terragrunt
+
+   - check terraform version
+     $ terragrunt --version 
+
+ 
+ 
+
+
