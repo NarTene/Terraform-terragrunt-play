@@ -1,0 +1,43 @@
+
+1. Create a new Terraform workspace
+To create a terraform workspace first you make sure that you have installed terraform. After that, you simply need to run the following terraform workspace command -
+
+terraform workspace new dev 
+
+1.1 Create one more workspace with name test
+
+Here is the command for creating another workspace with the name test
+
+ terraform workspace new test 
+
+
+2. List all the Terraform workspaces?
+Now in step 1 we have seen how to create a new workspace in terraform. But then how to list all the workspaces which we have created previously.
+
+So to list all the available workspaces use the following terraform command -
+
+terraform workspace list 
+
+3. Show Terraform workspaces?
+Terraform provides a command terraform workspace show which can help you to show the active running workspace in which you are working.
+
+terraform workspace show
+
+4. How to switch Terraform workspaces?
+It might be possible that you have created multiple workspaces to isolate your infrastructure code and you want to switch between the workspaces to apply your infrastructure changes.
+
+So to switch the workspace you should following terraform command -
+
+terraform workspace select test  
+
+
+5. How to use the name of Current Workspace using ${terraform.workspace} Interpolation?
+While working with longer terraform infrastructure code it often needed to name or tag your resources based on the environment profile such as dev, test, stage, prod, etc.
+
+With the help of ${terraform.workspace} interpolation sequence you can use the current workspace name to define terraform locals.
+
+Here is a simple example of provisioning a simple EC2 instance -
+
+1-I have defined a terraform local instance_name
+2-The terraform local have a name prefixed with the current workspace name .i.e. - "${terraform.workspace}-instance"
+3-And the terraform local is used to tag the aws_instance
